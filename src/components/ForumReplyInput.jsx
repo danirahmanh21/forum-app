@@ -1,13 +1,12 @@
-/* eslint-disable no-unused-vars */
 /*eslint linebreak-style: ["error", "windows"]*/
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 function ForumReplyInput({ replyForum }){
   const [body, setBody] = useState('');
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   function handleBodyChange({ target }) {
     if (target.value.length <= 8000){

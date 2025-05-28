@@ -1,6 +1,11 @@
 /* eslint-disable linebreak-style */
-
-/* eslint-disable linebreak-style */
+// test scenario for threads reducer
+// threadReducer function
+// 1.should return initial state when given unknown action
+// 2.should return the threads when given by RECEIVE_THREADS action
+// 3.should return the threads when given by ADD_THREADS action
+// 4.should handle UP_VOTE_THREAD correctly
+// 5.should handle DOWN_VOTE_THREAD correctly
 import { describe, expect, it } from 'vitest';
 import threadsReducer from './reducer';
 
@@ -16,7 +21,7 @@ describe('threadsReducers function', () => {
     //assert
     expect(nextState).toEqual(initialState);
   });
-  it('should return the talks when given by RECEIVE_THREADS action', () => {
+  it('should return the threads when given by RECEIVE_THREADS action', () => {
     // arrange
     const initialState = [];
     const action = {
@@ -56,7 +61,7 @@ describe('threadsReducers function', () => {
     expect(nextState).toEqual(action.payload.threads);
   });
 
-  it('should return the talks when given by ADD_THREADS action', () => {
+  it('should return the threads when given by ADD_THREADS action', () => {
     // arrange
     const initialState = [
       {

@@ -1,4 +1,9 @@
 /* eslint-disable linebreak-style */
+// test scenario for threads reducer
+// LoginInput component
+// 1.should handle email typing correctly
+// 2.should handle password typing correctly
+// 3.should call login function when login button is clicked
 import { cleanup, render, screen } from '@testing-library/react';
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
