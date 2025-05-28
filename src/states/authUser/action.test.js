@@ -4,6 +4,12 @@ import api from '../../utils/api';
 import { asyncSetAuthUser, asyncUnsetAuthUser, setAuthUserActionCreator, unsetAuthUserActionCreator } from './action';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 
+// test scenario for authUser thunk
+// authUser action
+// 1.should dispatch correct action on succesful login
+// 2.should handle login failure and show alert
+//3.should clear authUser and accessToken on logout
+
 const fakeToken = 'fake-token';
 const fakeAuthUser = {
   id: 'user-1',

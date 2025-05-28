@@ -3,6 +3,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import api from '../../utils/api';
 import { asyncReceiveUsers, receiveUsersActionCreator } from './action';
 
+// test scenario for users thunk
+// users action
+// 1.should dispatch users on success
+// 2.should call alert on failure
+
 const fakeUsers = [
   {
     id: 'user-1',

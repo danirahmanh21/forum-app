@@ -3,6 +3,13 @@ import { describe, it, expect } from 'vitest';
 import authUserReducer from './reducer';
 import { ActionType } from './action';
 
+// test scenario for authUser reducer
+// authUser reducer
+// 1.should return initial state when given unknown action
+// 2.should return authUser when given SET_AUTH_USER action
+// 3.should return null when given UNSET_AUTH_USER action
+
+
 describe('authUserReducer', () => {
   it('should return initial state when given unknown action', () => {
     const initialState = null;
