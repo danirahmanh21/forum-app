@@ -1,4 +1,8 @@
 /* eslint-disable linebreak-style */
+// test scenario for threads reducer
+// sharedAction thunk function
+// 1.should dispatch action correctly when data fetching success
+// 2.should dispatch action and call alert correctly when data fetching failed
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import api from '../../utils/api';
@@ -21,10 +25,10 @@ const fakeThreadsResponse = [
 
 const fakeUsersResponse = [
   {
-    'id': 'user-1',
-    'name': 'User Test 1',
-    'email': 'user@example.com',
-    'avatar': 'https://generated-image-url.jpg'
+    id: 'user-1',
+    name: 'User Test 1',
+    email: 'user@example.com',
+    avatar: 'https://generated-image-url.jpg'
   },
 ];
 
