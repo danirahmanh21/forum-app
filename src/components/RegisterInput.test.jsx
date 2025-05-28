@@ -6,6 +6,10 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import RegisterInput from './RegisterInput';
 import userEvent from '@testing-library/user-event';
 
+// test scenario for RegisterInput Component
+// RegisterInput component
+// 1.should handle name,email,password typing correctly
+// 2.should call register function when Register button is clicked
 expect.extend(matchers);
 
 describe('RegisterInput component', () =>{

@@ -6,6 +6,10 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import ForumReplyInput from './ForumReplyInput';
 import userEvent from '@testing-library/user-event';
 
+// test scenario for ForumReplyInput Component
+// ForumReplyInput component
+// 1.should handle body typing correctly
+// 2.should call replyForum function when reply button is clicked
 expect.extend(matchers);
 
 describe('ForumReplyInput component', () => {

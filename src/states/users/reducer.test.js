@@ -3,6 +3,11 @@ import { describe, expect, it } from 'vitest';
 import usersReducer from './reducer';
 import { ActionType } from './action';
 
+// test scenario for users reducer
+// users reducer
+// 1.should return users when given RECEIVE_USERS action
+
+
 describe('usersReducer', () =>{
   it('should return users when given RECEIVE_USERS action', () => {
     const initialState = [];

@@ -1,4 +1,8 @@
 /* eslint-disable linebreak-style */
+// test scenario for ForumInput Component
+// ForumInput component
+// 1.should handle title, category, and body typing correctly
+// 2.should call addForum function when Submit button is clicked
 import matchers from '@testing-library/jest-dom/matchers';
 import { cleanup, render, screen } from '@testing-library/react';
 import React from 'react';

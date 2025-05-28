@@ -5,6 +5,10 @@ import { asyncPreloadProcess, setIsPreloadActionCreator } from './action';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { setAuthUserActionCreator } from '../authUser/action';
 
+// test scenario for isPreload thunk
+// isPreload action
+// 1.should dispatch correct actions when preload succeeds
+// 2.should dispatch correct actions when preload fails
 
 const fakeUser = {
   id: 'user-1',
