@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-// test scenario for threads reducer
+// test scenario for LoginInput
 // LoginInput component
 // 1.should handle email typing correctly
 // 2.should handle password typing correctly
