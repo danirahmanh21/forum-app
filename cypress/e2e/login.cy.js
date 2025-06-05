@@ -61,7 +61,8 @@ describe('Login spec', () => {
     cy.get('button').contains(/^Login$/).click();
 
     // memverifikasi bahwa elemen yang berada di homepage ditampilkan
-    cy.get('[data-cy="home-link"]').should('be.visible');
+    //cy.contains('nav', 'Home', { timeout: 10000 }).should('be.visible');
+    cy.get('[data-cy="home-link"]', { timeout: 10000 }).should('be.visible');
     cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
   });
 });
