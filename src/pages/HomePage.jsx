@@ -41,9 +41,7 @@ function HomePage() {
     authUser: authUser.id,
     commentsCount: thread.totalComments || 0,
   }));
-  console.log('threads from redux:', threads);
-  console.log('users from redux:', users);
-  console.log('authUser from redux:', authUser);
+  
   return (
     <section className="home-page">
       <ForumInput addForum={onAddThread} />
@@ -59,3 +57,7 @@ function HomePage() {
 }
 
 export default HomePage;
+
+// console.log('threads from redux:', threads);
+// console.log('users from redux:', users);
+// console.log('authUser from redux:', authUser);
