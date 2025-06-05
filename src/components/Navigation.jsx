@@ -12,9 +12,7 @@ function Navigation({ authUser, signOut }){
     <div className="navigation">
       <img src={avatar} alt={id} title={name}/>
       <nav>
-        <Link to="/" data-cy='home-link'>
-          <FaHome />
-        </Link>
+        <Link to="/">Home</Link>
       </nav>
       <button type="button" onClick={signOut}>Sign Out</button>
     </div>
