@@ -10,7 +10,7 @@ function RegisterInput({ register }){
   const [password, onPasswordChange] = useInput('');
 
   return (
-    <form className="register-input">
+    <form className="auth-container">
       <input type="text" value={name} onChange={onNameChange} placeholder="Name" />
       <input type="email" value={email} onChange={onEmailChange} placeholder="E-mail" />
       <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />

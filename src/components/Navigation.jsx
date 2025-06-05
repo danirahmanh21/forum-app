@@ -4,6 +4,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
 function Navigation({ authUser, signOut }){
   const { id, avatar, name } = authUser;
 
@@ -11,7 +12,7 @@ function Navigation({ authUser, signOut }){
     <div className="navigation">
       <img src={avatar} alt={id} title={name}/>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/"><FaHome /></Link>
       </nav>
       <button type="button" onClick={signOut}>Sign Out</button>
     </div>
