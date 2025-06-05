@@ -4,7 +4,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaHome } from 'react-icons/fa';
 function Navigation({ authUser, signOut }){
   const { id, avatar, name } = authUser;
 
