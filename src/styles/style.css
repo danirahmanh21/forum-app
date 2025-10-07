@@ -114,7 +114,7 @@ button:hover {
 }
 
 /* Forum Input */
-.talk-input, .talk-reply-input {
+.forum-input, .forum-reply-input {
   background: var(--white);
   padding: 1rem;
   border-radius: 12px;
@@ -124,7 +124,7 @@ button:hover {
 
 .forum-input__title,
 .forum-input__body,
-.talk-reply-input textarea {
+.forum-reply-input textarea {
   width: 99%;
   padding: 0.5rem;
   border-radius: 8px;

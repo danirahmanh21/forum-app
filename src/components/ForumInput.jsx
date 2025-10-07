@@ -33,7 +33,7 @@ function ForumInput({ addForum }) {
   }
 
   return (
-    <div className="talk-input">
+    <div className="forum-input">
       <input
         className="forum-input__title"
         type="text"
@@ -57,7 +57,7 @@ function ForumInput({ addForum }) {
         onChange={handleBodyChange}
       />
 
-      <p className="talk-input__char-left">
+      <p className="forum-input__char-left">
         <strong>{body.length}</strong> /8000
       </p>
 
