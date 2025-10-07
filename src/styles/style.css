@@ -7,6 +7,7 @@
     --text:  #2B1D14; /* dark brown */
     --button-nav: #C49E8B;
     --button-nav-hover: #B88E79; 
+    --forum-item-bg: #EAD8C8; /* warm beige contrast*/
 }
 
 body {
@@ -183,7 +184,7 @@ button:hover {
 /* Forum Item */
 .forum-item {
   display: flex;
-  background: var(--background);
+  background: var(--forum-item-bg);
   padding: 1rem;
   border: 1px solid var(--accent);
   border-radius: 12px;
