@@ -70,6 +70,12 @@ button:hover {
   font-weight: bold;
 }
 
+.navigation img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 /* Loading */
 .loading {
   left: 0;
@@ -177,6 +183,7 @@ button:hover {
   font-weight: 500;
   background-color: var(--accent);
   padding: 0.2rem 0.6rem;
+  padding-top: 0.2rem;
   border-radius: 999px;
 }
 

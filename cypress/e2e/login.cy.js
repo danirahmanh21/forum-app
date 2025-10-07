@@ -50,17 +50,19 @@ describe('Login spec', () => {
     });
   });
 
-  // it('should display homepage when email and password are correct', () => {
-  //   // mengisi email
-  //   cy.get('input[placeholder="Email"]').type('teser1@tes.com');
+  it('should display homepage when email and password are correct', () => {
+    // mengisi email
+    cy.get('input[placeholder="Email"]').type('tes@tesd.com');
 
-  //   // mengisi password
-  //   cy.get('input[placeholder="Password"]').type('123456');
+    // mengisi password
+    cy.get('input[placeholder="Password"]').type('123456');
 
-  //   // menekan tombol Login
-  //   cy.get('button').contains(/^Login$/).click();
+    // menekan tombol Login
+    cy.get('button').contains(/^Login$/).click();
 
-  //   // memverifikasi bahwa elemen yang berada di homepage ditampilkan
-  //   cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
-  // });
+    // memverifikasi bahwa elemen yang berada di homepage ditampilkan
+    cy.get('nav').should('be.visible');
+    cy.get('nav').contains('Home').should('be.visible');
+    cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
+  });
 });
