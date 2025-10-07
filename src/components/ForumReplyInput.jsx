@@ -23,9 +23,9 @@ function ForumReplyInput({ replyForum }){
   }
 
   return (
-    <div className="talk-reply-input">
+    <div className="forum-reply-input">
       <textarea type= "text" placeholder="send a reply" value={body} onChange={handleBodyChange} />
-      <p className="talk-reply-input__char-left">
+      <p className="forum-reply-input__char-left">
         <strong>{body.length}</strong>
                 /8000
       </p>
