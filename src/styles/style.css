@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--primary);
+    background-color: var(--background);
 }
 
 /* Navigation */
