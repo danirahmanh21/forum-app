@@ -7,6 +7,7 @@ describe('Login spec', () => {
   it('should display login page correctly', () => {
 
     // verifikasi elemen yang harus tampil
+    cy.wait(1000);
     cy.get('input[placeholder="Email"]').should('be.visible');
     cy.get('input[placeholder="Password"]').should('be.visible');
     cy.get('button').contains(/^Login$/).should('be.visible');
