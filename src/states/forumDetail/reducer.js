@@ -10,29 +10,41 @@ function threadDetailReducer(threadDetail = null, action = {}) {
   case ActionType.CLEAR_THREAD_DETAIL:
     return null;
 
+  // case ActionType.UP_VOTE_THREAD_DETAIL:
+  //   return {
+  //     ...threadDetail,
+  //     upVotesBy: threadDetail.upVotesBy.includes(action.payload.userId)
+  //       ? threadDetail.upVotesBy
+  //       : threadDetail.upVotesBy.concat(action.payload.userId),
+  //     downVotesBy: threadDetail.downVotesBy.filter((id) => id !== action.payload.userId),
+  //   };
   case ActionType.UP_VOTE_THREAD_DETAIL:
+    const hasUpVoted = threadDetail.upVotesBy.includes(action.payload.userId);
     return {
       ...threadDetail,
-      upVotesBy: threadDetail.upVotesBy.includes(action.payload.userId)
-        ? threadDetail.upVotesBy
-        : threadDetail.upVotesBy.concat(action.payload.userId),
+      upVotesBy: hasUpVoted
+        ? threadDetail.upVotesBy.filter((id) => id !== action.payload.userId)
+        : [...threadDetail.upVotesBy, action.payload.userId],
       downVotesBy: threadDetail.downVotesBy.filter((id) => id !== action.payload.userId),
     };
+
+  // case ActionType.DOWN_VOTE_THREAD_DETAIL:
+  //   return {
+  //     ...threadDetail,
+  //     downVotesBy: threadDetail.downVotesBy.includes(action.payload.userId)
+  //       ? threadDetail.downVotesBy
+  //       : threadDetail.downVotesBy.concat(action.payload.userId),
+  //     upVotesBy: threadDetail.upVotesBy.filter((id) => id !== action.payload.userId),
+  //   };
 
   case ActionType.DOWN_VOTE_THREAD_DETAIL:
+    const hasDownVoted = threadDetail.downVotesBy.includes(action.payload.userId);
     return {
       ...threadDetail,
-      downVotesBy: threadDetail.downVotesBy.includes(action.payload.userId)
-        ? threadDetail.downVotesBy
-        : threadDetail.downVotesBy.concat(action.payload.userId),
+      downVotesBy: hasDownVoted
+        ? threadDetail.downVotesBy.filter((id) => id !== action.payload.userId)
+        : [...threadDetail.downVotesBy, action.payload.userId],
       upVotesBy: threadDetail.upVotesBy.filter((id) => id !== action.payload.userId),
-    };
-
-  case ActionType.NEUTRAL_VOTE_THREAD_DETAIL:
-    return {
-      ...threadDetail,
-      upVotesBy: threadDetail.upVotesBy.filter((id) => id !== action.payload.userId),
-      downVotesBy: threadDetail.downVotesBy.filter((id) => id !== action.payload.userId),
     };
 
   case ActionType.UP_VOTE_COMMENT:

@@ -105,18 +105,23 @@ button:hover {
 
 /* Forum Detail */
 .forum-detail {
-  background: var(--white);
+  background: var(--forum-item-bg);
   border: 2px solid var(--accent);
   border-radius: 12px;
   padding: 1rem;
   margin: 1rem 0;
 }
 
+.forum-detail:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
 .forum-detail header {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  border-radius: 12px;
 }
 
 .forum-detail___user-info p {
@@ -167,7 +172,6 @@ button:hover {
 }
 
 .forum-input button {
-  align-self: flex-end;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 8px;
@@ -178,7 +182,24 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 .forum-input button:hover {
-  background-color: #a95948;
+  background-color: var(--primary-dark);
+  transform: scale(1.03);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.forum-reply-input button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.forum-reply-input button:hover {
+  background-color: var(--primary-dark);
 }
 
 /* Forum Item */
@@ -191,6 +212,10 @@ button:hover {
   margin: 1rem 0;
   cursor: pointer;
   gap: 1rem;
+}
+.forum-item:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 .forum-item header {
   border-radius: 12px;
@@ -223,10 +248,10 @@ button:hover {
   align-items: center;
   gap: 0.3rem;
   font-size: 0.9rem;
+  background: var(--primary-dark);
   color: var(--text);
   margin-left: auto;
   font-weight: 500;
-  background-color: var(--accent);
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
 }
@@ -315,6 +340,7 @@ button:hover {
 .detail-page, .home-page, .login-page, .register-page {
   padding: 2rem;
 }
+
 
 .detail-page__parent {
   background: #f0f0f0;

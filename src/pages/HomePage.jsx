@@ -4,7 +4,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
-import { asyncAddThread, asyncDownVoteThread, asyncNeutralVoteThread, asyncUpVoteThread } from '../states/threads/action';
+import { asyncAddThread, asyncToggleDownVoteThread, asyncToggleUpVoteThread } from '../states/threads/action';
 import ForumInput from '../components/ForumInput';
 import ForumList from '../components/ForumList';
 
@@ -24,16 +24,16 @@ function HomePage() {
   };
 
   const onUpVote = (threadId) => {
-    dispatch(asyncUpVoteThread(threadId));
+    dispatch(asyncToggleUpVoteThread(threadId));
   };
 
   const onDownVote = (threadId) => {
-    dispatch(asyncDownVoteThread(threadId));
+    dispatch(asyncToggleDownVoteThread(threadId));
   };
 
-  const onNeutralVote = (threadId) => {
-    dispatch(asyncNeutralVoteThread(threadId));
-  };
+  // const onNeutralVote = (threadId) => {
+  //   dispatch(asyncNeutralVoteThread(threadId));
+  // };
 
   const threadList = threads.map((thread) => ({
     ...thread,
@@ -49,7 +49,6 @@ function HomePage() {
         threads={threadList}
         upVote={onUpVote}
         downVote={onDownVote}
-        neutralVote={onNeutralVote}
         authUser={authUser.id}
       />
     </section>
