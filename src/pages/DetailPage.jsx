@@ -5,7 +5,7 @@ import ForumItem from '../components/ForumItem';
 import ForumDetail from '../components/ForumDetail';
 import ForumReplyInput from '../components/ForumReplyInput';
 import {  useDispatch, useSelector  } from 'react-redux';
-import {  asyncAddComment, asyncDownVoteThreadDetail, asyncNeutralVoteThreadDetail, asyncReceiveThreadDetail, asyncUpVoteThreadDetail  } from '../states/forumDetail/action';
+import {  asyncAddComment, asyncToggleDownVoteThreadDetail, asyncReceiveThreadDetail, asyncToggleUpVoteThreadDetail  } from '../states/forumDetail/action';
 import {  useParams  } from 'react-router-dom';
 import {  postedAt  } from '../utils';
 
@@ -26,15 +26,11 @@ function DetailPage(){
   };
 
   const onUpVote = () =>{
-    dispatch(asyncUpVoteThreadDetail(id));
+    dispatch(asyncToggleUpVoteThreadDetail(id));
   };
 
   const onDownVote = () =>{
-    dispatch(asyncDownVoteThreadDetail(id));
-  };
-
-  const onNeutralVote = () =>{
-    dispatch(asyncNeutralVoteThreadDetail(id));
+    dispatch(asyncToggleDownVoteThreadDetail(id));
   };
 
   console.log('threadid is:', id);
@@ -55,7 +51,6 @@ function DetailPage(){
         authUser={ authUser.id }
         upVote={ onUpVote }
         downVote={ onDownVote }
-        neutralVote={ onNeutralVote }
       />
       <ForumReplyInput replyForum={ onComment }/>
       <section className='detail-page__comments'>

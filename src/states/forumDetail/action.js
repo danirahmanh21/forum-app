@@ -103,14 +103,24 @@ function asyncReceiveThreadDetail(threadId){
   };
 }
 
-function asyncUpVoteThreadDetail(){
+function asyncToggleUpVoteThreadDetail(threadId) {
   return async (dispatch, getState) =>{
     dispatch(showLoading());
     const { authUser, threadDetail } = getState();
+    const hasUpvoted = threadDetail.upVotesBy.includes(authUser.id);
+
+    //update ui instasntly
     dispatch(upVoteThreadDetailActionCreator(authUser.id));
 
     try {
-      await api.upvoteThread(threadDetail.id);
+      if (hasUpvoted) {
+        // if already upvoted, neutralize the vote
+        await api.neutralizeVoteThread(threadDetail.id);
+      } else {
+
+        //if not yet upvoted, upvote the thread
+        await api.upvoteThread(threadDetail.id);
+      }
     } catch (error) {
       alert(error.message);
     }
@@ -119,14 +129,23 @@ function asyncUpVoteThreadDetail(){
   };
 }
 
-function asyncDownVoteThreadDetail(){
+function asyncToggleDownVoteThreadDetail(threadId){
   return async (dispatch, getState) =>{
     dispatch(showLoading());
     const { authUser, threadDetail } = getState();
+    const hasDownVoted = threadDetail.downVotesBy.includes(authUser.id);
+
+    //update ui instasntly
     dispatch(downVoteThreadDetailActionCreator(authUser.id));
 
     try {
-      await api.downvoteThread(threadDetail.id);
+      if (hasDownVoted) {
+        // if already downvoted, neutralize the vote
+        await api.neutralizeVoteThread(threadDetail.id);
+      } else {
+        //if not yet downvoted, downvote the thread
+        await api.downvoteThread(threadDetail.id);
+      }
     } catch (error) {
       alert(error.message);
     }
@@ -135,21 +154,53 @@ function asyncDownVoteThreadDetail(){
   };
 }
 
-function asyncNeutralVoteThreadDetail() {
-  return async (dispatch, getState) => {
-    dispatch(showLoading());
-    const { authUser, threadDetail } = getState();
-    dispatch(neutralVoteThreadDetailActionCreator(authUser.id));
+// function asyncUpVoteThreadDetail(){
+//   return async (dispatch, getState) =>{
+//     dispatch(showLoading());
+//     const { authUser, threadDetail } = getState();
+//     dispatch(upVoteThreadDetailActionCreator(authUser.id));
 
-    try {
-      await api.neutralizeVoteThread(threadDetail.id);
-    } catch (error) {
-      alert(error.message);
-    }
+//     try {
+//       await api.upvoteThread(threadDetail.id);
+//     } catch (error) {
+//       alert(error.message);
+//     }
 
-    dispatch(hideLoading());
-  };
-}
+//     dispatch(hideLoading());
+//   };
+// }
+
+// function asyncDownVoteThreadDetail(){
+//   return async (dispatch, getState) =>{
+//     dispatch(showLoading());
+//     const { authUser, threadDetail } = getState();
+//     dispatch(downVoteThreadDetailActionCreator(authUser.id));
+
+//     try {
+//       await api.downvoteThread(threadDetail.id);
+//     } catch (error) {
+//       alert(error.message);
+//     }
+
+//     dispatch(hideLoading());
+//   };
+// }
+
+// function asyncNeutralVoteThreadDetail() {
+//   return async (dispatch, getState) => {
+//     dispatch(showLoading());
+//     const { authUser, threadDetail } = getState();
+//     dispatch(neutralVoteThreadDetailActionCreator(authUser.id));
+
+//     try {
+//       await api.neutralizeVoteThread(threadDetail.id);
+//     } catch (error) {
+//       alert(error.message);
+//     }
+
+//     dispatch(hideLoading());
+//   };
+// }
 
 function asyncUpVoteComment(commentId) {
   return async (dispatch, getState) => {
@@ -221,9 +272,8 @@ export {
   downVoteThreadDetailActionCreator,
   neutralVoteThreadDetailActionCreator,
   asyncReceiveThreadDetail,
-  asyncUpVoteThreadDetail,
-  asyncDownVoteThreadDetail,
-  asyncNeutralVoteThreadDetail,
+  asyncToggleUpVoteThreadDetail,
+  asyncToggleDownVoteThreadDetail,
   upVoteCommentActionCreator,
   downVoteCommentActionCreator,
   neutralVoteCommentActionCreator,

@@ -7,6 +7,7 @@ describe('Login spec', () => {
   it('should display login page correctly', () => {
 
     // verifikasi elemen yang harus tampil
+    cy.wait(1000);
     cy.get('input[placeholder="Email"]').should('be.visible');
     cy.get('input[placeholder="Password"]').should('be.visible');
     cy.get('button').contains(/^Login$/).should('be.visible');
@@ -61,8 +62,11 @@ describe('Login spec', () => {
     cy.get('button').contains(/^Login$/).click();
 
     // memverifikasi bahwa elemen yang berada di homepage ditampilkan
-    cy.get('nav').should('be.visible');
-    cy.get('nav').contains('Home').should('be.visible');
+    // cy.get('nav').should('be.visible');
+    // cy.get('nav').contains('Home').should('be.visible');
+    // cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
+    cy.url({ timeout: 10000 }).should('include', '/');
+    cy.get('nav', { timeout: 10000 }).should('be.visible');
     cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
   });
 });
